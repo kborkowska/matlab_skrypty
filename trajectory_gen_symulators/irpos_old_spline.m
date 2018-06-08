@@ -68,7 +68,7 @@ title('acceleration')
 ylabel('acceleration')
 xlabel('time')
 
-[positions, velocities, accelerations]=Data(time, coeffAcc);
+[positions, velocities, accelerations]=JointTrajectoryData(time, coeffAcc);
 
 figure('Name','Acceleration','NumberTitle','off');
 title('Position, velocity and acceleration given')
@@ -146,52 +146,6 @@ xlabel('time')
           
  end
  
- %% get position for a given moment
- function [position]=Position(time, coeff)
-    position=0;
-    
-    for i=0:5
-        position= position + time^i * coeff(i+1);
-    end
-    
- end
  
- 
-  %% get velocity for a given moment
- function [velocity]=Velocity(time, coeff)
-    velocity=0;
-    
-    for i=0:4
-        velocity= velocity + time^i * coeff(i+2) * (i+1);
-    end
-    
- end
- 
- 
-  %% get velocity for a given moment
- function [acceleration]=Acceleration(time, coeff)
-    acceleration=0;
-    
-    for i=0:3
-        acceleration= acceleration + time^i * coeff(i+3) * (i+2)*(i+1);
-    end
-    
- end 
- 
- 
-%% produces data
-function [positions, velocities, accelerations]=Data(time, coeff)
- 
-    iterations=length(time);
-    positions=zeros(iterations, 1);
-    velocities=zeros(iterations, 1);
-    accelerations=zeros(iterations, 1);
-    
-    for i=1:iterations
-        positions(i)=Position(time(i), coeff);
-        velocities(i)=Velocity(time(i), coeff);
-        accelerations(i)=Acceleration(time(i), coeff);
-    end
- 
-end
+
  

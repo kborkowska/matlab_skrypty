@@ -28,17 +28,24 @@ clear all
 t_0 = 0.0;
 q_0 = 0.0;
 q_1 = 400.0;
+q_2 = 100.0;
+q_3 = 20.0;
+q_4 = 0.0;
 v_0 = 0;
 v_1 = 0;
-v_v = 25;
+v_v = 20;
 a_max = 10;
 freq = 0.002;
 
 
 SimulateTrajectoryAccVel(t_0,q_0,q_1,v_0,v_1,v_v,a_max, freq,...
-                    '[BVT] velocities > v_v',true);
-
-
+                    '[BVT] velocities > v_v',false);
+% SimulateTrajectoryAccVel(t_0,q_1,q_2,v_0,v_1,v_v,a_max, freq,...
+%                     '[BVT] velocities > v_v',false);
+% SimulateTrajectoryAccVel(t_0,q_2,q_3,v_0,v_1,v_v,a_max, freq,...
+%                     '[BVT] velocities > v_v',false);
+% SimulateTrajectoryAccVel(t_0,q_3,q_4,v_0,v_1,v_v,a_max, freq,...
+%                     '[BVT] velocities > v_v',false);       
 % Test(true);
 
 %% Calling test functions
